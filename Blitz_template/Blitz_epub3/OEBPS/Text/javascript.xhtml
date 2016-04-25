@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE html>
+<html xmlns:epub="http://www.idpf.org/2007/ops" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Blitz</title>
+  <link href="../Styles/blitz.css" type="text/css" rel="stylesheet"/>
+  <link href="../Styles/kindle.css" type="text/css" rel="stylesheet"/>
+  <link href="../Styles/blitz-mq.css" type="text/css" rel="stylesheet"/>
+  <script src="../JS/blitz.js" />
+</head>
+
+<body xml:lang="en" epub:type="frontmatter">
+  <section  id="javascript">
+    <main id="main" aria-label="Content">
+  <!--
+    Here lives the main content of the page.
+  -->
+  Coucou comment ça va ?
+ <button class="link-like" data-a11y-dialog-show="my-accessible-dialog">Open the dialog</button>
+</main>
+
+<div class="dialog" aria-hidden="true" id="my-accessible-dialog">
+      <div class="dialog-overlay" tabindex="-1" data-a11y-dialog-hide="my-accessible-dialog"></div>
+      <div class="dialog-content" aria-labelledby="dialogTitle" aria-describedby="dialogDescription" role="dialog">
+        <div role="document">
+          <h1 id="dialogTitle">My Title!</h1>
+          <p id="dialogDescription">Hey! This is my content! Yeah</p>
+          <button data-a11y-dialog-hide="my-accessible-dialog" class="dialog-close" title="Close the dialog">close</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+  	(function () {
+      document.addEventListener('DOMContentLoaded', function () {
+        var dialogEl = document.getElementById('my-accessible-dialog');
+        var mainEl = document.getElementById('main');
+        var dialog = new window.A11yDialog(dialogEl, mainEl);
+        // To manually control the dialog:
+        // dialog.show()
+        // dialog.hide()
+      });
+    }());
+</script>
+</body>
+</html>

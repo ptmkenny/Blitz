@@ -129,11 +129,13 @@
 	<item href="Text/preface.xhtml" id="preface.xhtml" media-type="application/xhtml+xml"/>
 	<item href="Text/prologue.xhtml" id="prologue.xhtml" media-type="application/xhtml+xml"/>
 	<item href="Text/titlepage.xhtml" id="titlepage.xhtml" media-type="application/xhtml+xml"/>
+	<item href="Text/javascript.xhtml" id="javascript.xhtml" media-type="application/xhtml+xml"/>
 	<item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
 	<item href="Text/nav.xhtml" id="navid" media-type="application/xhtml+xml" properties="nav"/>
 	<item href="Styles/blitz.css" id="blitz.css" media-type="text/css"/>
 	<item href="Styles/blitz-mq.css" id="blitz-mq.css" media-type="text/css"/>
 	<item href="Styles/kindle.css" id="kindle.css" media-type="text/css"/>
+	<item href="JS/blitz.js" id="blitz.js" media-type="text/javascript"/>
 	<item href="Images/cover.png" id="cover.png" media-type="image/png" properties="cover-image" />
   </manifest>
 
@@ -162,5 +164,6 @@
 	<itemref idref="bibliography.xhtml" />
 	<itemref idref="index.xhtml" />
 	<itemref idref="credits.xhtml" />
+	<itemref idref="javascript.xhtml" />
   </spine>
 </package>

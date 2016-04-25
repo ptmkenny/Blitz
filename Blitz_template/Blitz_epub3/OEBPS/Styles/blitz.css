@@ -878,3 +878,9 @@ video {
   break-inside: avoid;
 }
 /* End CSS */
+
+
+
+.dialog[aria-hidden="true"] {
+  display: none;
+}
