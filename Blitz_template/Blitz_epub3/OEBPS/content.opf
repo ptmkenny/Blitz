@@ -129,7 +129,7 @@
 	<item href="Text/preface.xhtml" id="preface.xhtml" media-type="application/xhtml+xml"/>
 	<item href="Text/prologue.xhtml" id="prologue.xhtml" media-type="application/xhtml+xml"/>
 	<item href="Text/titlepage.xhtml" id="titlepage.xhtml" media-type="application/xhtml+xml"/>
-	<item href="Text/javascript.xhtml" id="javascript.xhtml" media-type="application/xhtml+xml"/>
+	<item href="Text/javascript.xhtml" id="javascript.xhtml" media-type="application/xhtml+xml"  properties="scripted" />
 	<item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
 	<item href="Text/nav.xhtml" id="navid" media-type="application/xhtml+xml" properties="nav"/>
 	<item href="Styles/blitz.css" id="blitz.css" media-type="text/css"/>
