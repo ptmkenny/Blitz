@@ -274,3 +274,40 @@
 .no-list-type {             /* Typical usage: hiding numbers in toc */
   list-style-type: none;   
 }
+
+// Typesetting packages
+
+#non-indented-first-para() {
+	h1 + p,
+	h1 + blockquote + p,
+	h1 + figure + p,
+	h2 + p,
+	h2 + blockquote + p,
+	h2 + figure + p,
+	h3 + p,
+	h3 + blockquote + p,
+	h3 + figure + p,
+	h4 + p,
+	h4 + blockquote + p,
+	h4 + figure + p,
+	h5 + p,
+	h5 + blockquote + p,
+	h5 + figure + p,
+	h6 + p,
+	h6 + blockquote + p,
+	h6 + figure + p,
+	hr + p {
+	  .no-indent;
+	}
+}
+
+#non-hyphenated-first-line() {
+  p:first-line {
+    .disable-hyphens;	
+  }
+}
+
+  // Usage
+  // In typo.less, use:
+  // • #non-indented-first-para;
+  // • #non-hyphenated-first-line;
