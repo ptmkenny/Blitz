@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, dt, hr {
 }
 
 h1 {
-  .rhythm(3, 0, 2);
+  .rhythm(4, 0, 0); // font scale, top margin, bottom margin
 
   @media @kf8 {
     line-height: 1.2;     /* Minimum value Kindle supports */
@@ -24,12 +24,12 @@ h1 {
 
   @media @mobi7 {
     font-size: xx-large;    /* Keywords offer more precision for mobi 7*/
-    margin: 0 0 3em 0;      /* mobi7 doesn’t support decimal values */
+    margin: 0;      /* mobi7 doesn’t support decimal values */
   }
 }
 
 h2 {
-  .rhythm(2, 2, 1);
+  .rhythm(3, 0, 1);
 
   @media @kf8 {
     line-height: 1.2;     /* Minimum value Kindle supports */
@@ -37,25 +37,25 @@ h2 {
 
   @media @mobi7 {
     font-size: x-large;
-    margin: 2em 0 1em 0;
+    margin: 0 0 1em 0;
   }
 }
 
 h3 {
-  .rhythm(1, 1, 1);
+  .rhythm(3, 0, 1);
 
   @media @mobi7 {
     font-size: large;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
   }
 }
 
 h4 {
-  .rhythm(0, 1, 0);
+  .rhythm(2, 0, 1);
 
   @media @mobi7 {
     font-size: medium;
-    margin: 1em 0 0 0;
+    margin: 0 0 1em 0;
   }
 }
 
@@ -68,7 +68,7 @@ h6 {
 }
 
 p {
-  .indent;
+  .no-indent; // edo
 }
 
 .footnote {
@@ -176,4 +176,174 @@ sup {
   @media @mobi7 {
     font-size: x-small;
   }
+}
+
+
+@edo-red: #e0162b;
+@page-down-margin: 45%;
+
+h1 { // For the title on the first page of the book
+  margin-top: @page-down-margin;
+  padding-left: 0.25em; // padding should match h2
+  padding-right: 0.25em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+h1.epubtitlepage, h1#toc-title { // title page + toc page
+  margin-top: 0;
+}
+
+h1.main { // title page
+  margin-top: 20%;
+  padding: 0; // Do not need same padding as toc/first page
+  .fs-xxl;
+}
+h1.subtitle { // title page
+  .fs-l;
+  padding: 0;
+  margin-bottom: 2em;
+}
+
+h2 {
+  margin-top: @page-down-margin; //put it halfway down the page
+  background: black; // website navbar
+  color: white;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+
+h4 {
+  // border-left: 3px solid #e0162b;
+  border-left: 5px solid currentColor;
+  // border-left: 5px solid @edo-red;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+}
+
+h3 {
+  // border-left: 3px solid #e0162b;
+  border-left: 5px solid currentColor;
+  // border-left: 5px solid @edo-red;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, table.caption {
+  .bold;
+  .sans;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0; // these are often used with paragraphs, which usually have a margin-bottom
+}
+
+// Used for reibun heading text
+.h6 {
+  font-size: 0.8em;
+  line-height: 1.2;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+// .h3 .h4 are list/matome headings
+h1, .h1, h2, .h2, .h3, .h4 {
+  text-align: center;
+}
+
+// TOC STYLES
+
+nav#toc ol.toc ol.toc {
+  padding-left: 0 !important;
+}
+
+nav#toc ol.toc { // root, document title
+  list-style-type: none;
+  li a { // for h1 item and then cascade to chapters
+    font-size: ((@body-font-size / 16) * 100) + 25%;
+  }
+  ol.toc {
+    padding-left: 0 !important; // remove padding to align with h1 first list item
+    ol.toc {
+      padding-left: 2em !important; // restore padding for subitems
+    }
+  }
+  ol.toc li { // chapter titles
+    a {
+      .bold;
+    }
+    ol.toc li { // subtitles
+      list-style-type: disc;
+      a {
+        // set specific font size to avoid inheritance problems
+        font-size: ((@body-font-size / 16) * 100) + 0%; // make subitems smaller
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+p.bigphoto {
+  text-align: center;
+}
+
+// REMOVE INDENTING FOR JAPANESE
+body, div, p { text-indent:0; } // from the KDP Japanese publishing guidelines
+
+
+// PAGE BREAKS //
+
+table, div.speechbubble, div.reibun, div.good, div.better, div.best, div.goldenrule, div.warning, div.listname, div.matome div.matome-oneline {
+  .no-break-inside;
+}
+
+h3, h4 { // Chapter subsections + sub-subsections should always start on their own pages.
+  // Do not assign for .h3 and .h4; if such classes need a page-break-before, it can be added with the same mechanism that adds the .hX class
+  .break-before;
+}
+
+
+p.jptrans, p.dt, p.ft {
+  margin-top: 0; // keep it flat against the next line
+}
+p.speechtext {
+  margin-bottom: 0; // do not use a margin because this will usually be followed by a translation
+}
+div.textzone {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+div.speechbubble-first {
+  margin-top: 1em !important; // must override div.textzone
+}
+
+span.english, div.english { // span for inline, div for blocks
+  .sans;
+}
+
+// Center images
+figure {
+  text-align: center;
+  figcaption {
+    border-bottom: 3px solid currentColor;
+  }
+}
+
+li { // space li like paragraphs
+  margin-bottom: 1em;
 }
