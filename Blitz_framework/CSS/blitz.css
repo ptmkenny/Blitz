@@ -87,6 +87,12 @@ h3,
 h4,
 h5,
 h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
 dt,
 pre {
   text-align: left;
@@ -94,6 +100,12 @@ pre {
 /* Following EPUB 3 spec by the letter (applies to RS but let’s make sure it is respected because we never know) */
 nav[epub|type~="toc"] ol {
   list-style: none !important;
+}
+/* Kindle does not follow the EPUB 3 spec. */
+@media amzn-kf8, amzn-mobi {
+  nav ol {
+    list-style-type: none !important;
+  }
 }
 /* [Opinionated] Default to prevent bloat in case linear="no" is rendered as linear="yes" */
 nav[epub|type~="landmarks"],
@@ -196,6 +208,12 @@ h3,
 h4,
 h5,
 h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
 dt,
 hr {
   page-break-inside: avoid;
@@ -210,6 +228,12 @@ hr {
   h4,
   h5,
   h6,
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
   dt,
   hr {
     page-break-inside: auto;
@@ -217,76 +241,110 @@ hr {
     /* Fix blank bug because of page-break-inside: avoid… */
   }
 }
-h1 {
-  font-size: 1.4375em;
-  line-height: 1.04347826;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: sans-serif;
+}
+h1,
+.h1 {
+  font-size: 1.625em;
+  line-height: 0.92307692;
   margin-top: 0em;
-  margin-bottom: 2.08695652em;
+  margin-bottom: 0em;
 }
 @media amzn-kf8 {
-  h1 {
+  h1,
+  .h1 {
     line-height: 1.2;
     /* Minimum value Kindle supports */
   }
 }
 @media amzn-mobi {
-  h1 {
+  h1,
+  .h1 {
     font-size: xx-large;
     /* Keywords offer more precision for mobi 7*/
-    margin: 0 0 3em 0;
+    margin: 0;
     /* mobi7 doesn’t support decimal values */
   }
 }
-h2 {
+h2,
+.h2 {
   font-size: 1.3125em;
   line-height: 1.14285714;
   margin-top: 2.28571429em;
   margin-bottom: 1.14285714em;
+  font-size: 1.4375em;
+  line-height: 1.04347826;
+  margin-top: 0em;
+  margin-bottom: 1.04347826em;
 }
 @media amzn-kf8 {
-  h2 {
+  h2,
+  .h2 {
     line-height: 1.2;
     /* Minimum value Kindle supports */
   }
 }
 @media amzn-mobi {
-  h2 {
+  h2,
+  .h2 {
     font-size: x-large;
-    margin: 2em 0 1em 0;
+    margin: 0 0 1em 0;
   }
 }
-h3 {
-  font-size: 1.125em;
-  line-height: 1.33333333;
-  margin-top: 1.33333333em;
-  margin-bottom: 1.33333333em;
+h3,
+.h3 {
+  font-size: 1.4375em;
+  line-height: 1.04347826;
+  margin-top: 0em;
+  margin-bottom: 1.04347826em;
 }
 @media amzn-mobi {
-  h3 {
+  h3,
+  .h3 {
     font-size: large;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
   }
 }
-h4 {
+h4,
+.h4 {
   font-size: 1em;
   line-height: 1.5;
   margin-top: 1.5em;
   margin-bottom: 0em;
+  font-size: 1.3125em;
+  line-height: 1.14285714;
+  margin-top: 0em;
+  margin-bottom: 1.14285714em;
 }
 @media amzn-mobi {
-  h4 {
+  h4,
+  .h4 {
     font-size: medium;
-    margin: 1em 0 0 0;
+    margin: 0 0 1em 0;
   }
 }
-h5 {
+h5,
+.h5 {
   /* Styles */
 }
-h6 {
+h6,
+.h6 {
   /* Styles */
 }
 p {
-  text-indent: 1em;
+  text-indent: 0;
 }
 .footnote {
   font-size: 0.9375em;
@@ -323,8 +381,8 @@ a {
   text-decoration: underline;
   /* Note: KF8 will force this value unless you use "el.class a" */
   font-weight: bold;
-  color: inherit;
-  -webkit-text-fill-color: inherit;
+  color: #1DA1F2;
+  -webkit-text-fill-color: #1DA1F2;
   /* iBooks override (iOS 9 + El Capitan in night mode) */
   /* inherit = text color */
 }
@@ -404,6 +462,205 @@ sup {
   sup {
     font-size: x-small;
   }
+}
+/* i18n */
+/* Ruby text */
+rt {
+  font-size: 50%;
+  /* Line-height may need to be adjusted to fit ruby text. */
+  text-transform: full-size-kana;
+  /* Increases the legibility of Japanese ruby characters. */
+}
+h1 {
+  margin-top: 45%;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+h1.epubtitlepage,
+h1#toc-title {
+  margin-top: 0;
+}
+h1.main {
+  margin-top: 20%;
+  padding: 0;
+  font-size: 1.4375em;
+  line-height: 1.04347826;
+}
+h1.subtitle {
+  font-size: 1.125em;
+  line-height: 1.33333333;
+  padding: 0;
+  margin-bottom: 2em;
+}
+h2 {
+  margin-top: 45%;
+  background: black;
+  color: white;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+h4 {
+  border-left: 5px solid currentColor;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0.5em;
+}
+h3 {
+  border-left: 5px solid currentColor;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+p {
+  margin-bottom: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+table.caption {
+  /* Don't use that with span if b or strong can be used */
+  font-weight: bold;
+  /* Typical usage: headings */
+  font-family: sans-serif;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-bottom: 0;
+}
+.h6 {
+  font-size: 0.8em;
+  line-height: 1.2;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+  font-weight: bold;
+  text-align: center;
+}
+h1,
+.h1,
+h2,
+.h2,
+.h3,
+.h4 {
+  text-align: center;
+}
+nav#toc ol.toc ol.toc {
+  padding-left: 0 !important;
+}
+nav#toc ol.toc {
+  list-style-type: none;
+}
+nav#toc ol.toc li a {
+  font-size: 125%;
+}
+nav#toc ol.toc ol.toc {
+  padding-left: 0 !important;
+}
+nav#toc ol.toc ol.toc ol.toc {
+  padding-left: 2em !important;
+}
+nav#toc ol.toc ol.toc li a {
+  /* Don't use that with span if b or strong can be used */
+  font-weight: bold;
+}
+nav#toc ol.toc ol.toc li ol.toc li {
+  list-style-type: disc;
+}
+nav#toc ol.toc ol.toc li ol.toc li a {
+  font-size: 100%;
+  font-weight: normal;
+}
+p.bigphoto {
+  text-align: center;
+}
+body,
+div,
+p {
+  text-indent: 0;
+}
+table,
+div.speechbubble,
+div.reibun,
+div.good,
+div.better,
+div.best,
+div.goldenrule,
+div.warning,
+div.listname,
+div.matome div.matome-oneline {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+@media amzn-kf8 {
+  table,
+  div.speechbubble,
+  div.reibun,
+  div.good,
+  div.better,
+  div.best,
+  div.goldenrule,
+  div.warning,
+  div.listname,
+  div.matome div.matome-oneline {
+    page-break-inside: auto;
+    break-inside: auto;
+    /* Fix blank bug because of page-break-inside: avoid… */
+  }
+}
+h3,
+h4 {
+  page-break-before: always;
+  break-before: always;
+  /* Future according to https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before */
+}
+p.jptrans,
+p.dt,
+p.ft {
+  margin-top: 0;
+}
+p.speechtext {
+  margin-bottom: 0;
+}
+div.textzone {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+div.speechbubble-first {
+  margin-top: 1em !important;
+}
+span.english,
+div.english {
+  /* Typical usage: headings */
+  font-family: sans-serif;
+}
+figure {
+  text-align: center;
+}
+figure figcaption {
+  text-decoration: underline;
+  text-decoration-color: #6A6C6E;
+}
+li {
+  margin-bottom: 1em;
 }
 /* FIGURES + IMAGES  */
 figure {
@@ -548,7 +805,7 @@ hr.asterism {
   height: 1.5em;
   text-indent: 0;
   text-align: center;
-  background: transparent url("../Images/asterism.svg") no-repeat center;
+  background: transparent url("../media/svg/asterism.svg") no-repeat center;
   /* Change url if you put asterism in a folder */
   background-size: 2.5em 1.25em;
   /* RMSDK doesn't support -> won't scale but SVG viewport is OK for a wide range of font-sizes */

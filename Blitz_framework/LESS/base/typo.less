@@ -21,7 +21,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 h1, .h1 {
   .rhythm(4, 0, 0); // font scale, top margin, bottom margin
-  .rhythm(3, 0, 2);
 
   @media @kf8 {
     line-height: 1.2;     /* Minimum value Kindle supports */
@@ -356,7 +355,8 @@ span.english, div.english { // span for inline, div for blocks
 figure {
   text-align: center;
   figcaption {
-    border-bottom: 3px solid currentColor;
+    text-decoration: underline;
+    text-decoration-color: #6A6C6E; // middle gray
   }
 }
 

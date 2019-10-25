@@ -50,6 +50,12 @@ section {
 [hidden] {
   display: none
 }
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
 dt,
 h1,
 h2,
@@ -62,6 +68,12 @@ pre {
 }
 nav[epub|type~=toc] ol {
   list-style: none!important
+}
+@media amzn-kf8,
+amzn-mobi {
+  nav ol {
+    list-style-type: none!important
+  }
 }
 nav[epub|type~=landmarks],
 nav[epub|type~=page-list] {
