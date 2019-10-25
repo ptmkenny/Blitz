@@ -546,23 +546,6 @@ table.caption {
 .h6 {
   margin-bottom: 0;
 }
-.h6 {
-  font-size: 0.8em;
-  line-height: 1.2;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-top: 0;
-  font-weight: bold;
-  text-align: center;
-}
-h1,
-.h1,
-h2,
-.h2,
-.h3,
-.h4 {
-  text-align: center;
-}
 nav#toc ol.toc ol.toc {
   padding-left: 0 !important;
 }
@@ -654,6 +637,10 @@ div.english {
 }
 figure {
   text-align: center;
+}
+figure ul,
+figure ol {
+  text-align: left;
 }
 figure figcaption {
   text-decoration: underline;
@@ -825,6 +812,7 @@ table {
   /* Note: legacy RMSDK sets auto to 0, which is permitted in a footnote of the EPUB2 specs */
   font-feature-settings: "tnum" 1;
   font-variant-numeric: tabular-nums;
+  line-height: 1.5;
 }
 @media amzn-mobi {
   table {
@@ -853,7 +841,7 @@ th {
   empty-cells: show;
   border-bottom: 0.125em solid currentColor;
   /* Current color = color of text (inverted in night mode) */
-  padding: 0.6875em 10px 0.6875em 0;
+  padding: 0.6875em 16px 0.6875em 16px;
   text-align: left;
   font-weight: bold;
 }
@@ -861,7 +849,7 @@ td {
   empty-cells: show;
   border-bottom: 0.0625em solid currentColor;
   /* Current color = color of text (inverted in night mode) */
-  padding: 0.75em 10px 0.6875em 0;
+  padding: 0.75em 16px 0.6875em 16px;
   text-align: left;
 }
 .table-fixed {

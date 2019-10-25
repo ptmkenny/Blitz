@@ -472,23 +472,6 @@ table.caption {
 .h6 {
   margin-bottom: 0
 }
-.h6 {
-  font-size: .8em;
-  line-height: 1.2;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-top: 0;
-  font-weight: 700;
-  text-align: center
-}
-.h1,
-.h2,
-.h3,
-.h4,
-h1,
-h2 {
-  text-align: center
-}
 nav#toc ol.toc ol.toc {
   padding-left: 0!important
 }
@@ -576,6 +559,10 @@ span.english {
 }
 figure {
   text-align: center
+}
+figure ol,
+figure ul {
+  text-align: left
 }
 figure figcaption {
   text-decoration: underline;
@@ -717,7 +704,8 @@ table {
   max-width: 100%;
   margin: 1.5em auto;
   font-feature-settings: "tnum" 1;
-  font-variant-numeric: tabular-nums
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5
 }
 @media amzn-mobi {
   table {
@@ -732,14 +720,14 @@ caption {
 th {
   empty-cells: show;
   border-bottom: .125em solid currentColor;
-  padding: .6875em 10px .6875em 0;
+  padding: .6875em 16px .6875em 16px;
   text-align: left;
   font-weight: 700
 }
 td {
   empty-cells: show;
   border-bottom: .0625em solid currentColor;
-  padding: .75em 10px .6875em 0;
+  padding: .75em 16px .6875em 16px;
   text-align: left
 }
 .table-fixed {
