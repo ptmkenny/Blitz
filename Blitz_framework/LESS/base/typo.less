@@ -75,7 +75,7 @@ h6, .h6 {
 }
 
 p {
-  .no-indent; // edo
+  .no-indent; // Japanese
 }
 
 .footnote {
@@ -185,8 +185,17 @@ sup {
   }
 }
 
+/* i18n */
 
-@edo-red: #e0162b;
+/* Ruby text */
+rt {
+  font-size: 50%; /* Line-height may need to be adjusted to fit ruby text. */
+  text-transform: full-size-kana; /* Increases the legibility of Japanese ruby characters. */
+}
+
+// Custom additions
+
+@red: #e0162b;
 @page-down-margin: 45%;
 
 h1 { // For the title on the first page of the book
@@ -228,7 +237,7 @@ h2 {
 h4 {
   // border-left: 3px solid #e0162b;
   border-left: 5px solid currentColor;
-  // border-left: 5px solid @edo-red;
+  // border-left: 5px solid @red;
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   padding-left: 0.5em;
@@ -237,7 +246,7 @@ h4 {
 h3 {
   // border-left: 3px solid #e0162b;
   border-left: 5px solid currentColor;
-  // border-left: 5px solid @edo-red;
+  // border-left: 5px solid @red;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   padding-left: 0.5em;
@@ -354,3 +363,4 @@ figure {
 li { // space li like paragraphs
   margin-bottom: 1em;
 }
+
