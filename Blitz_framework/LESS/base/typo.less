@@ -265,22 +265,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, table.caption {
   margin-bottom: 0; // these are often used with paragraphs, which usually have a margin-bottom
 }
 
-// Used for reibun heading text
-.h6 {
-  font-size: 0.8em;
-  line-height: 1.2;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding-top: 0;
-  font-weight: bold;
-  text-align: center;
-}
-
-// .h3 .h4 are list/matome headings
-h1, .h1, h2, .h2, .h3, .h4 {
-  text-align: center;
-}
-
 // TOC STYLES
 
 nav#toc ol.toc ol.toc {
@@ -351,9 +335,11 @@ span.english, div.english { // span for inline, div for blocks
   .sans;
 }
 
-// Center images
 figure {
-  text-align: center;
+  text-align: center; // Center images
+  ul, ol {
+    text-align: left; // Do not center lists
+  }
   figcaption {
     text-decoration: underline;
     text-decoration-color: #6A6C6E; // middle gray
