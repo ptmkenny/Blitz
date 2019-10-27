@@ -324,8 +324,14 @@ blockquote p i {
 a {
   text-decoration: underline;
   font-weight: 700;
-  color: #1da1f2;
-  -webkit-text-fill-color: #1da1f2
+  color: currentColor;
+  -webkit-text-fill-color: currentColor
+}
+@media (color) {
+  a {
+    color: #1da1f2;
+    -webkit-text-fill-color: #1da1f2
+  }
 }
 cite,
 dfn,
@@ -426,6 +432,7 @@ h2 {
   color: #fff;
   border-radius: 3px;
   -webkit-border-radius: 3px;
+  border: 1px solid currentColor;
   padding-left: .25em;
   padding-right: .25em;
   padding-top: 1.5em;
@@ -477,7 +484,7 @@ nav#toc ol.toc {
   list-style-type: none
 }
 nav#toc ol.toc li a {
-  font-size: 125%
+  font-size: 110%
 }
 nav#toc ol.toc ol.toc {
   padding-left: 0!important
@@ -536,10 +543,11 @@ h4 {
   page-break-before: always;
   break-before: always
 }
+div.speechbubble p,
 p.dt,
 p.ft,
 p.jptrans {
-  margin-top: 0
+  margin-bottom: 0
 }
 p.speechtext {
   margin-bottom: 0

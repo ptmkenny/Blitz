@@ -115,8 +115,12 @@ address {
 a {
   .underline;           /* Note: KF8 will force this value unless you use "el.class a" */
   font-weight: bold;
-  color: @link-color;
-  .override-iBooks-links(@link-color);   /* inherit = text color */
+  color: currentColor;
+  .override-iBooks-links(currentColor);   /* inherit = text color */
+  @media (color) { // Kindle Paperwhite incorrectly reports that it is color.
+    color: @link-color;
+    .override-iBooks-links(@link-color);
+  }
 }
 
 abbr {
@@ -220,12 +224,13 @@ h1.subtitle { // title page
   margin-bottom: 2em;
 }
 
-h2 {
+h2 { // chapter titles
   margin-top: @page-down-margin; //put it halfway down the page
   background: black; // website navbar
   color: white;
   border-radius: 3px;
   -webkit-border-radius: 3px;
+  border: 1px solid currentColor;
   padding-left: 0.25em;
   padding-right: 0.25em;
   padding-top: 1.5em;
@@ -274,7 +279,7 @@ nav#toc ol.toc ol.toc {
 nav#toc ol.toc { // root, document title
   list-style-type: none;
   li a { // for h1 item and then cascade to chapters
-    font-size: ((@body-font-size / 16) * 100) + 25%;
+    font-size: ((@body-font-size / 16) * 100) + 10%;
   }
   ol.toc {
     padding-left: 0 !important; // remove padding to align with h1 first list item
@@ -317,9 +322,11 @@ h3, h4 { // Chapter subsections + sub-subsections should always start on their o
 }
 
 
-p.jptrans, p.dt, p.ft {
-  margin-top: 0; // keep it flat against the next line
+p.jptrans, p.dt, p.ft, div.speechbubble p {
+  // margin-top: 0; // keep it flat against the next line
+  margin-bottom: 0;
 }
+
 p.speechtext {
   margin-bottom: 0; // do not use a margin because this will usually be followed by a translation
 }
