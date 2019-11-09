@@ -3,3 +3,6 @@ Blitz_framework/LESS/.crunch
 
 .DS_Store
 node_modules
+
+# We don't care about Blitz template and it is updated every build.
+Blitz_template/*.epub
