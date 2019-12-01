@@ -73,7 +73,7 @@ h6, .h6 {
 /* Styles */    
 }
 
-p {
+p:lang(ja) {
   .no-indent; // Japanese
 }
 
@@ -256,7 +256,7 @@ h3 {
   padding-left: 0.5em;
 }
 
-p {
+p:lang(ja) {
   margin-bottom: 1em;
 }
 
@@ -307,7 +307,10 @@ p.bigphoto {
 }
 
 // REMOVE INDENTING FOR JAPANESE
-body, div, p { text-indent:0; } // from the KDP Japanese publishing guidelines
+// body, div, p { text-indent:0; } // from the KDP Japanese publishing guidelines
+body:lang(ja), div:lang(ja) {
+  .no-indent;
+}
 
 
 // PAGE BREAKS //

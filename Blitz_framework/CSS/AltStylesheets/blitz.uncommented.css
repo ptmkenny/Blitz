@@ -293,7 +293,7 @@ h4 {
     margin: 0 0 1em 0
   }
 }
-p {
+p:lang(ja) {
   text-indent: 0
 }
 .footnote {
@@ -452,7 +452,7 @@ h3 {
   padding-bottom: .5em;
   padding-left: .5em
 }
-p {
+p:lang(ja) {
   margin-bottom: 1em
 }
 .h1,
@@ -507,9 +507,8 @@ nav#toc ol.toc ol.toc li ol.toc li a {
 p.bigphoto {
   text-align: center
 }
-body,
-div,
-p {
+body:lang(ja),
+div:lang(ja) {
   text-indent: 0
 }
 div.best,
