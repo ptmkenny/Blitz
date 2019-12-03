@@ -43,6 +43,17 @@
 
 /* Note: for direction, use the dir attribute: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir */
 
+/* Languages with no indented paragraphs. */
+/* Note: Japanese is given here as an example. */
+
+body:lang(ja), div:lang(ja), p:lang(ja) { // From the KDP Japanese publishing guidelines.
+  .no-indent;
+}
+
+p:lang(ja) {
+  margin-bottom: 1em; // Since there is no indent, add a "space" in between paragraphs.
+}
+
 /* Typography */
 
 .line-break-auto {
