@@ -343,7 +343,7 @@ h6,
 .h6 {
   /* Styles */
 }
-p:lang(ja) {
+p {
   text-indent: 0;
 }
 .footnote {
@@ -525,7 +525,7 @@ h3 {
   padding-bottom: 0.5em;
   padding-left: 0.5em;
 }
-p:lang(ja) {
+p {
   margin-bottom: 1em;
 }
 h1,
@@ -583,8 +583,9 @@ nav#toc ol.toc ol.toc li ol.toc li a {
 p.bigphoto {
   text-align: center;
 }
-body:lang(ja),
-div:lang(ja) {
+body,
+div,
+p {
   text-indent: 0;
 }
 table,
